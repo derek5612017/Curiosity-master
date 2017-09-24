@@ -57,7 +57,7 @@ public class Robot extends IterativeRobot {
 		//Create Subsystem Objects
 		comp = new Compressor(0);
 		comp.setClosedLoopControl(true); //Turns on compressor
-		gyro = new ADXRS450_Gyro();	//Turns on Gyro
+		gyro = new ADXRS450_Gyro(); //Turns on Gyro
 		drive = new Drive();
 		ball = new Ball();
 		gear = new Gear();
@@ -77,24 +77,24 @@ public class Robot extends IterativeRobot {
 		chooser.addObject("Drive Across Baseline", new DriveAcrossBaseLine());
 		chooser.addDefault("Nothing", null);
 		SmartDashboard.putData("Auto Choice", chooser);
-		
+
 		//Start Vision Thread
-		vision = new VisionThread(CameraServer.getInstance().startAutomaticCapture(0), new GripPipeline(), grip ->{
-			if(grip.convexHullsOutput().size()==2){	//If you have two vision targets
+		vision = new VisionThread(CameraServer.getInstance().startAutomaticCapture(0), new GripPipeline(), grip -> {
+			if (grip.convexHullsOutput().size() == 2) { //If you have two vision targets
 				//Get the dimentsions of both
 				Rect r1 = Imgproc.boundingRect(grip.convexHullsOutput().get(0));
 				Rect r2 = Imgproc.boundingRect(grip.convexHullsOutput().get(1));
-				synchronized(imgLock){
+				synchronized (imgLock) {
 					//Set values
-					x = ((r1.x + r1.width/2) + (r2.x + r2.width/2)) / 2;
+					x = ((r1.x + r1.width / 2) + (r2.x + r2.width / 2)) / 2;
 					distance = Math.abs(r1.x - r2.x);
 					System.out.println("STEP: X: " + x + " Distance: " + distance);
 				}
-			}else{
+			} else {
 				//Oh no no target
 				System.out.println("NO TARGET FOUND" + grip.convexHullsOutput().size());
 				//Stop
-				synchronized(imgLock){
+				synchronized (imgLock) {
 					x = -1;
 					distance = -1;
 				}
@@ -120,7 +120,8 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		//Auto Camera Settings
 		autonomousCommand = chooser.getSelected();
-		if (autonomousCommand != null) autonomousCommand.start();
+		if (autonomousCommand != null)
+			autonomousCommand.start();
 	}
 
 	@Override
@@ -142,7 +143,7 @@ public class Robot extends IterativeRobot {
 		log();
 	}
 
-	public void log(){
+	public void log() {
 		//Put important data in dashboard
 		SmartDashboard.putNumber("Right Drive", drive.getRightDistance());
 		SmartDashboard.putNumber("Left Drive", drive.getLeftDistance());

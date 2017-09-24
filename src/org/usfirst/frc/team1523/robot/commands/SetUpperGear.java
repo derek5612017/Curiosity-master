@@ -9,12 +9,12 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SetUpperGear extends Command {
 
-	private boolean state;
-	private boolean finished=false;
-	
+    private boolean state;
+    private boolean finished = false;
+
     public SetUpperGear(boolean state) {
         requires(Robot.gear);
-        this.state=state;
+        this.state = state;
     }
 
     // Called just before this Command runs the first time
@@ -23,9 +23,9 @@ public class SetUpperGear extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Send to subsystem
-    	Robot.gear.setLower(state);
-    	finished=true;
+        //Send to subsystem
+        Robot.gear.setLower(state);
+        finished = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()

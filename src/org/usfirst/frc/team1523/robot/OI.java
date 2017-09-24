@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	Joystick stick0;
 	Joystick stick1;
-	
+
 	JoystickButton ballOutputOut;
 	JoystickButton ballOutputIn;
 	JoystickButton holdBallPickup;
@@ -28,14 +28,14 @@ public class OI {
 	JoystickButton downRope;
 	JoystickButton gearOut;
 	JoystickButton gearIn;
-	
+
 	JoystickButton resetEncoder;
-	
-	public OI(){
+
+	public OI() {
 		//Create Joystick Objects
 		stick0 = new Joystick(0);
 		stick1 = new Joystick(1);
-		
+
 		//Assign each button object to its stick and button number in RobotMap
 		ballOutputOut = new JoystickButton(stick1, RobotMap.BALL_OUTPUT_OUT_BUTTON);
 		ballOutputIn = new JoystickButton(stick1, RobotMap.BALL_OUTPUT_IN_BUTTON);
@@ -45,7 +45,7 @@ public class OI {
 		holdRope = new JoystickButton(stick0, RobotMap.ROPE_HOLD_BUTTON);
 		gearOut = new JoystickButton(stick1, RobotMap.GEAR_OUT_BUTTON);
 		gearIn = new JoystickButton(stick1, RobotMap.GEAR_IN_BUTTON);
-		
+
 		//Give Each Button A Command
 		holdRope.whileHeld(new ClimbRope());
 		holdBallPickup.whileHeld(new PickupBall());
@@ -56,18 +56,18 @@ public class OI {
 		gearOut.whenPressed(new SetUpperGear(true));
 		gearIn.whenPressed(new SetUpperGear(false));
 	}
-	
+
 	/**
 	 * @return Joystick in port 0
 	 */
-	public Joystick getStick0(){
+	public Joystick getStick0() {
 		return stick0;
 	}
-	
+
 	/**
 	 * @return Joystick in port 1
 	 */
-	public Joystick getStick1(){
+	public Joystick getStick1() {
 		return stick1;
 	}
 }

@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class DriveAcrossBaseLine extends CommandGroup {
 
     public DriveAcrossBaseLine() {
-    	//Drive far
+        //Drive far
         addSequential(new AutoDrive(0.7, 100));
     }
 }

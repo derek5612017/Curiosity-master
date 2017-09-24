@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ResetSensors extends Command {
 
     public ResetSensors() {
-    	requires(Robot.drive);
+        requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -19,8 +19,8 @@ public class ResetSensors extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drive.reset(); //Reset encoders
-    	Robot.gyro.reset(); //Reset gyro
+        Robot.drive.reset(); //Reset encoders
+        Robot.gyro.reset(); //Reset gyro
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class TestClimb extends Command {
 
     public TestClimb() {
-    	setTimeout(0.1);
-    	requires(Robot.rope);
+        setTimeout(0.1);
+        requires(Robot.rope);
     }
 
     // Called just before this Command runs the first time
@@ -19,8 +19,8 @@ public class TestClimb extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Run backwards at half speed
-    	Robot.rope.run(0.5);
+        //Run backwards at half speed
+        Robot.rope.run(0.5);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -30,12 +30,12 @@ public class TestClimb extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.rope.stop();
+        Robot.rope.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
+        end();
     }
 }
