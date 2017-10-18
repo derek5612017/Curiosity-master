@@ -20,6 +20,7 @@ public class RobotMap {
 	public static final int GEAR_PUSH_UPPER_A = 4;
 	public static final int GEAR_PUSH_UPPER_B = 5;
 
+	
 	//---------------DIO--------------------------
 	public static final int PRESSURE_PLATE_INPUT = 1;
 
@@ -34,5 +35,5 @@ public class RobotMap {
 	public static final int GEAR_IN_BUTTON = 6;
 
 	//------------Constants--------------------------
-	public static final double DISTANCE_PER_PULSE = (Math.PI * 6) / (360 * 4);
+	public static final double DISTANCE_PER_PULSE = (Math.PI * 6) / (360*4);
 }
